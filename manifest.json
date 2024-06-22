@@ -1,0 +1,41 @@
+{
+    "manifest_version": 3,
+    "name": "Zillow Data Scraper",
+    "version": "1.0",
+    "description": "Scrape property data from Zillow and export to Google Sheets.",
+    "permissions": [
+      "activeTab",
+      "storage",
+      "scripting",
+      "identity"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon120.png"
+      }
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://www.zillow.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon120.png"
+    },
+    "oauth2": {
+      "client_id": "982810094181-jf9hav93dufes0c49bbk4v0qlv7kfp01.apps.googleusercontent.com",
+      "scopes": [
+        "https://www.googleapis.com/auth/spreadsheets"
+      ]
+    }
+  }
+  
